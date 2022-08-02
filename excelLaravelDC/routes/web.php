@@ -23,6 +23,8 @@ Route::get('/', function (UsersExport $usersExport) {
 });
 Route::get('/users','App\Http\Controllers\UsersController@index')->name('users.index');
 Route::get('/users/export/', 'App\Http\Controllers\UsersController@export')->name('user.export');
+Route::get('/users/export/query', 'App\Http\Controllers\UsersController@exportQuery')->name('user.exportQuery');
+Route::get('/users/export/view', 'App\Http\Controllers\UsersController@exportView')->name('user.exportView');
 
 
 Route::get('download',function(){
