@@ -14,7 +14,7 @@ Route::get('/', function (UsersExport $usersExport) {
 
 
     //Excel varias formas de poder exportar
-    /*$usersExport = new UsersExport;
+    /*$usersExport = new UsersExport;sss
     return $usersExport->download('users.xlsx');*/
 
     //return Excel::download(new UsersExport(2019), 'users.csv');
@@ -22,9 +22,10 @@ Route::get('/', function (UsersExport $usersExport) {
     //return $usersExport->store('users.csv','public');
 });
 Route::get('/users','App\Http\Controllers\UsersController@index')->name('users.index');
-Route::get('/users/export/', 'App\Http\Controllers\UsersController@export')->name('user.export');
-Route::get('/users/export/query', 'App\Http\Controllers\UsersController@exportQuery')->name('user.exportQuery');
-Route::get('/users/export/view', 'App\Http\Controllers\UsersController@exportView')->name('user.exportView');
+Route::get('/users/export/', 'App\Http\Controllers\UsersController@export')->name('users.export');
+Route::get('/users/export/query', 'App\Http\Controllers\UsersController@exportQuery')->name('users.exportQuery');
+Route::get('/users/export/view', 'App\Http\Controllers\UsersController@exportView')->name('users.exportView');
+Route::post('/users/export/multiple/', 'App\Http\Controllers\UsersController@exportMultipleSheets')->name('users.exportMultipleSheets');
 
 
 Route::get('download',function(){

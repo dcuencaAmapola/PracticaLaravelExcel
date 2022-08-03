@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Exports\UsersExport;
 use App\Exports\UsersExportQuery;
 use App\Exports\UsersExportView;
+use App\Exports\UsersExportMultiple;
 use App\Models\User;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -31,5 +32,11 @@ class UsersController extends Controller
     public function exportView()
     {
         return (new UsersExportView)->download('users.xlsx');
+    }
+
+    public function exportMultipleSheets(Request $request)
+    {
+        $year = $request->get('year');
+        return (new UsersExportMultiple)->forYear($year)->download('users.xlsx');
     }
 }

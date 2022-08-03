@@ -35,8 +35,16 @@
 
             </tbody>
         </table>
-        <a href="{{ route('user.export') }}">Descargar PDF</a><br>
-        <a href="{{ route('user.exportQuery') }}">Descargar CSV Query</a>
+        <a href="{{ route('users.export') }}">Descargar PDF</a><br>
+        <a href="{{ route('users.exportQuery') }}">Descargar CSV Query</a><br>
+        <a href="{{ route('users.exportView') }}">Descargar XLSX View</a>
+
+        <form method="post" action="{{ route('users.exportMultipleSheets')}}">
+            @csrf
+            <label>Ingrese el anio de exportacion</label>
+            <input name="year" placeholder="Anio">
+            <button type="submit">Descargar</button>
+        </form>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous">
