@@ -11,30 +11,7 @@
 
 <body>
     <div class="container">
-        <h1 class="mt-4">Factura</h1>
-        <table class="table table-inverse">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                </tr>
-            </thead>
-            <tbody>
-                @forelse($users as $user)
-                    <tr>
-                        <td>{{ $user->id }}</td>
-                        <td>{{ $user->name }}</td>
-                        <td>{{ $user->email }}</td>
-                    </tr>
-                @empty
-                    <li>
-                        Users list empty
-                    </li>
-                @endforelse
-
-            </tbody>
-        </table>
+        <h1 class="mt-4">Usuarios</h1>
         <a href="{{ route('users.export') }}">Descargar PDF</a><br>
         <a href="{{ route('users.exportQuery') }}">Descargar CSV Query</a><br>
         <a href="{{ route('users.exportView') }}">Descargar XLSX View</a>
@@ -45,6 +22,32 @@
             <input name="year" placeholder="Anio">
             <button type="submit">Descargar</button>
         </form>
+        <table class="table table-inverse">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Created Year</th>
+                </tr>
+            </thead>
+            <tbody>
+                @forelse($users as $user)
+                    <tr>
+                        <td>{{ $user->id }}</td>
+                        <td>{{ $user->name }}</td>
+                        <td>{{ $user->email }}</td>
+                        <td>{{ $user->created_at->format('Y') }}</td>
+                    </tr>
+                @empty
+                    <li>
+                        Users list empty
+                    </li>
+                @endforelse
+
+            </tbody>
+        </table>
+
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous">
