@@ -27,6 +27,8 @@ Route::get('/users/export/query', 'App\Http\Controllers\UsersController@exportQu
 Route::get('/users/export/view', 'App\Http\Controllers\UsersController@exportView')->name('users.exportView');
 Route::post('/users/export/multiple/', 'App\Http\Controllers\UsersController@exportMultipleSheets')->name('users.exportMultipleSheets');
 
+Route::get('/users/import', 'App\Http\Controllers\UsersController@import')->name('users.import');
+
 
 Route::get('download',function(){
     $pdf = Pdf::loadView('welcome');

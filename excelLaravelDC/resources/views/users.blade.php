@@ -22,6 +22,7 @@
             <input name="year" placeholder="Anio">
             <button type="submit">Descargar</button>
         </form>
+        <a href="{{ route('users.import') }}">Importar XLSX desde el directorio public</a><br>
         <table class="table table-inverse">
             <thead>
                 <tr>

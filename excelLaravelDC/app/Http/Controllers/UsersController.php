@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Exports\UsersExport;
+use App\Imports\UsersImport;
 use App\Exports\UsersExportQuery;
 use App\Exports\UsersExportView;
 use App\Exports\UsersExportMultiple;
@@ -38,5 +39,11 @@ class UsersController extends Controller
     {
         $year = $request->get('year');
         return (new UsersExportMultiple)->forYear($year)->download('users.xlsx');
+    }
+
+    public function import()
+    {
+        Excel::import(new UsersImport,'users.xlsx');
+        return redirect('/'->with('sucess', 'All good!'));
     }
 }
