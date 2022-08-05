@@ -16,7 +16,7 @@ use Illuminate\Http\Request;
 class UsersController extends Controller
 {
     public function index(){
-        $users = User::get();
+        $users = User::orderBy('id','DESC')->get();
         return view('users', compact('users'));
     }
 
