@@ -43,7 +43,7 @@ class UsersController extends Controller
 
     public function import()
     {
-        Excel::import(new UsersImport,'users.xlsx');
-        return redirect('/'->with('sucess', 'All good!'));
+        Excel::import(new UsersImport,'users3.xlsx');
+        return redirect()->route('users.index')->with('sucess', 'All good!');
     }
 }
